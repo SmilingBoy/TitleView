@@ -5,17 +5,13 @@
         <attr name="titleText" format="string|reference" />
         <attr name="titleColor" format="color|reference" />
         <attr name="titltTextSize" format="dimension|reference" />
-
         <attr name="backBtnText" format="string|reference" />
         <attr name="backBtnTextColor" format="color|reference" />
         <attr name="backBtnTextSize" format="dimension|reference" />
-
         <attr name="ibtnBackIcon" format="color|reference" />
-
         <attr name="rightBtnText" format="string|reference" />
         <attr name="rightBtnTextColor" format="color|reference" />
         <attr name="rightBtnTextSize" format="dimension|reference" />
-
         <attr name="rightBackIcon" format="color|reference" />
     </declare-styleable>
 
