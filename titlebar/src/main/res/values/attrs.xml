@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="ZQTitleBar">
+    <declare-styleable name="ZQTitleView">
         <attr name="titleText" format="string|reference" />
         <attr name="titleColor" format="color|reference" />
         <attr name="titltTextSize" format="dimension|reference" />

@@ -45,7 +45,7 @@ public class ZQTitleView extends RelativeLayout {
     private int rightBtnTextColor = Color.parseColor("#fff000");
     private float rightBtnTextSize = 14;
 
-    private int rightBackIcon;
+    private Drawable rightBackIcon;
 
     private OnTextBtnClickListener onTextBtnClickListener = null;
     private OnIconBackBtnClickListener onIconBackBtnClickListener = null;
@@ -65,20 +65,22 @@ public class ZQTitleView extends RelativeLayout {
 
     private void init(Context context, AttributeSet attrs) {
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ZQTitleBar);
-        titleText = typedArray.getString(R.styleable.ZQTitleBar_titleText);
-        titleTextColor = typedArray.getColor(R.styleable.ZQTitleBar_titleColor, Color.GRAY);
-        titltTextSize = typedArray.getDimension(R.styleable.ZQTitleBar_titltTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ZQTitleView);
+        titleText = typedArray.getString(R.styleable.ZQTitleView_titleText);
+        titleTextColor = typedArray.getColor(R.styleable.ZQTitleView_titleColor, Color.WHITE);
+        titltTextSize = typedArray.getDimension(R.styleable.ZQTitleView_titltTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
 
-        backBtnText = typedArray.getString(R.styleable.ZQTitleBar_backBtnText);
-        backBtnTextColor = typedArray.getColor(R.styleable.ZQTitleBar_backBtnTextColor, Color.GRAY);
-        backBtnTextSize = typedArray.getDimension(R.styleable.ZQTitleBar_backBtnTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+        backBtnText = typedArray.getString(R.styleable.ZQTitleView_backBtnText);
+        backBtnTextColor = typedArray.getColor(R.styleable.ZQTitleView_backBtnTextColor, Color.WHITE);
+        backBtnTextSize = typedArray.getDimension(R.styleable.ZQTitleView_backBtnTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
 
-        ibtnBackIcon = typedArray.getDrawable(R.styleable.ZQTitleBar_ibtnBackIcon);
+        ibtnBackIcon = typedArray.getDrawable(R.styleable.ZQTitleView_ibtnBackIcon);
 
-        rightBtnText = typedArray.getString(R.styleable.ZQTitleBar_rightBtnText);
-        rightBtnTextColor = typedArray.getColor(R.styleable.ZQTitleBar_rightBtnTextColor, Color.GRAY);
-        rightBtnTextSize = typedArray.getDimension(R.styleable.ZQTitleBar_rightBtnTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+        rightBtnText = typedArray.getString(R.styleable.ZQTitleView_rightBtnText);
+        rightBtnTextColor = typedArray.getColor(R.styleable.ZQTitleView_rightBtnTextColor, Color.WHITE);
+        rightBtnTextSize = typedArray.getDimension(R.styleable.ZQTitleView_rightBtnTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
+
+        rightBackIcon= typedArray.getDrawable(R.styleable.ZQTitleView_rightBackIcon);
 
         typedArray.recycle();
     }
@@ -87,13 +89,13 @@ public class ZQTitleView extends RelativeLayout {
         addTitleTextView();
         if (backBtnText != null && backBtnText.length() > 0) {
             addLeftTextBtn();
-        }else {
+        } else {
             addLeftIbtnBack();
         }
 
-        if (rightBtnText!=null && rightBtnText.length()>0){
+        if (rightBtnText != null && rightBtnText.length() > 0) {
             addRightTextBtn();
-        }else {
+        } else {
             addRightIbtn();
         }
     }
@@ -103,7 +105,7 @@ public class ZQTitleView extends RelativeLayout {
         tvTitle = new TextView(context);
         tvTitle.setText(titleText);
         tvTitle.setTextColor(titleTextColor);
-        tvTitle.setTextSize(titltTextSize);
+        tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titltTextSize);
         RelativeLayout.LayoutParams leftParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         leftParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         addView(tvTitle, leftParams);
@@ -114,7 +116,7 @@ public class ZQTitleView extends RelativeLayout {
         btnBack = new TextView(context);
         btnBack.setText(backBtnText);
         btnBack.setTextColor(backBtnTextColor);
-        btnBack.setTextSize(backBtnTextSize);
+        btnBack.setTextSize(TypedValue.COMPLEX_UNIT_PX, backBtnTextSize);
         btnBack.setPadding(ZQTools.dp2px(context, 14), 0, ZQTools.dp2px(context, 14), 0);
         btnBack.setGravity(Gravity.CENTER_VERTICAL);
         RelativeLayout.LayoutParams leftParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
@@ -163,7 +165,7 @@ public class ZQTitleView extends RelativeLayout {
         btnRight = new TextView(context);
         btnRight.setText(rightBtnText);
         btnRight.setTextColor(rightBtnTextColor);
-        btnRight.setTextSize(rightBtnTextSize);
+        btnRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightBtnTextSize);
         btnRight.setPadding(ZQTools.dp2px(context, 14), 0, ZQTools.dp2px(context, 14), 0);
         btnRight.setGravity(Gravity.CENTER_VERTICAL);
         RelativeLayout.LayoutParams leftParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
@@ -186,7 +188,7 @@ public class ZQTitleView extends RelativeLayout {
         ibtnRight = new ImageButton(context);
         ibtnRight.setPadding(ZQTools.dp2px(context, 14), 0, ZQTools.dp2px(context, 14), 0);
         ibtnRight.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        ibtnRight.setImageResource(rightBackIcon);
+        ibtnRight.setImageDrawable(rightBackIcon);
         ibtnRight.setBackground(null);
         RelativeLayout.LayoutParams leftParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         leftParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
@@ -301,11 +303,11 @@ public class ZQTitleView extends RelativeLayout {
         this.rightBtnTextSize = rightBtnTextSize;
     }
 
-    public int getRightBackIcon() {
+    public Drawable getRightBackIcon() {
         return rightBackIcon;
     }
 
-    public void setRightBackIcon(int rightBackIcon) {
+    public void setRightBackIcon(Drawable rightBackIcon) {
         this.rightBackIcon = rightBackIcon;
     }
 }

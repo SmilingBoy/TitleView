@@ -9,7 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="#000000"
-        app:titleText="sss"
-        app:titltTextSize="14px" />
+        app:ibtnBackIcon="@drawable/ic_title_bar_back"
+        app:titleText="你好" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="你好" />
 
 </LinearLayout>
