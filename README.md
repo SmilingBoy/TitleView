@@ -9,5 +9,5 @@ activity自定义titlebar
 	}
   
   	dependencies {
-	        compile 'com.github.SmilingBoy:TitleView:v1.0'
+	        compile 'com.github.SmilingBoy:TitleView:v1.1'
 	}
