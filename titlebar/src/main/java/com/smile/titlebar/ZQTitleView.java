@@ -80,7 +80,7 @@ public class ZQTitleView extends RelativeLayout {
         rightBtnTextColor = typedArray.getColor(R.styleable.ZQTitleView_rightBtnTextColor, Color.WHITE);
         rightBtnTextSize = typedArray.getDimension(R.styleable.ZQTitleView_rightBtnTextSize, TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
 
-        rightBackIcon= typedArray.getDrawable(R.styleable.ZQTitleView_rightBackIcon);
+        rightBackIcon = typedArray.getDrawable(R.styleable.ZQTitleView_rightBackIcon);
 
         typedArray.recycle();
     }
@@ -227,87 +227,120 @@ public class ZQTitleView extends RelativeLayout {
         return titleText;
     }
 
-    public void setTitleText(String titleText) {
+    public void setTitleText(@Nullable String titleText) {
         this.titleText = titleText;
+        if (null != tvTitle) {
+            tvTitle.setText(titleText);
+        }
     }
 
     public int getTitleTextColor() {
         return titleTextColor;
     }
 
-    public void setTitleTextColor(int titleTextColor) {
+    public void setTitleTextColor(@Nullable int titleTextColor) {
         this.titleTextColor = titleTextColor;
+        if (null != tvTitle) {
+            tvTitle.setTextColor(titleTextColor);
+        }
     }
 
     public float getTitltTextSize() {
         return titltTextSize;
     }
 
-    public void setTitltTextSize(float titltTextSize) {
+    public void setTitltTextSize(@Nullable float titltTextSize) {
         this.titltTextSize = titltTextSize;
+        if (null != tvTitle) {
+            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titltTextSize);
+        }
     }
 
     public String getBackBtnText() {
         return backBtnText;
     }
 
-    public void setBackBtnText(String backBtnText) {
+    public void setBackBtnText(@Nullable String backBtnText) {
         this.backBtnText = backBtnText;
+        if (null != btnBack) {
+            btnBack.setText(backBtnText);
+        }
     }
 
     public int getBackBtnTextColor() {
         return backBtnTextColor;
     }
 
-    public void setBackBtnTextColor(int backBtnTextColor) {
+    public void setBackBtnTextColor(@Nullable int backBtnTextColor) {
         this.backBtnTextColor = backBtnTextColor;
+        if (null != btnBack) {
+            btnBack.setBackgroundColor(backBtnTextColor);
+        }
     }
 
     public float getBackBtnTextSize() {
         return backBtnTextSize;
     }
 
-    public void setBackBtnTextSize(float backBtnTextSize) {
+    public void setBackBtnTextSize(@Nullable float backBtnTextSize) {
         this.backBtnTextSize = backBtnTextSize;
+        if (null != btnBack) {
+            btnBack.setTextSize(TypedValue.COMPLEX_UNIT_PX, backBtnTextSize);
+        }
     }
 
     public Drawable getIbtnBackIcon() {
         return ibtnBackIcon;
     }
 
-    public void setIbtnBackIcon(Drawable ibtnBackIcon) {
+    public void setIbtnBackIcon(@Nullable Drawable ibtnBackIcon) {
         this.ibtnBackIcon = ibtnBackIcon;
+        if (null != ibtnBack) {
+            ibtnBack.setBackground(ibtnBackIcon);
+        }
     }
 
     public String getRightBtnText() {
         return rightBtnText;
     }
 
-    public void setRightBtnText(String rightBtnText) {
+    public void setRightBtnText(@Nullable String rightBtnText) {
         this.rightBtnText = rightBtnText;
+        if (null != btnRight) {
+            btnRight.setText(rightBtnText);
+        }
     }
 
     public int getRightBtnTextColor() {
         return rightBtnTextColor;
     }
 
-    public void setRightBtnTextColor(int rightBtnTextColor) {
+    public void setRightBtnTextColor(@Nullable int rightBtnTextColor) {
         this.rightBtnTextColor = rightBtnTextColor;
+        if (null != btnRight) {
+            btnRight.setTextColor(rightBtnTextColor);
+        }
     }
 
     public float getRightBtnTextSize() {
         return rightBtnTextSize;
     }
 
-    public void setRightBtnTextSize(float rightBtnTextSize) {
+    public void setRightBtnTextSize(@Nullable float rightBtnTextSize) {
         this.rightBtnTextSize = rightBtnTextSize;
+        if (null != btnRight) {
+            btnRight.setTextSize(TypedValue.COMPLEX_UNIT_PX, rightBtnTextColor);
+        }
     }
 
     public Drawable getRightBackIcon() {
         return rightBackIcon;
     }
 
-    public void setRightBackIcon(Drawable rightBackIcon) {
+    public void setRightBackIcon(@Nullable Drawable rightBackIcon) {
         this.rightBackIcon = rightBackIcon;
+        if (null != ibtnRight) {
+            ibtnBack.setBackground(rightBackIcon);
+        }
     }
 }
